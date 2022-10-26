@@ -69,11 +69,11 @@ public class NonEmptyBST<T extends Comparable<T>> implements BST<T> {
 			}
 			if (!this._left.isEmpty() && !this._right.isEmpty()) { // 2 children condition. replace with smallest on right
 				BST<T> rightNode = this.getRight();
-				while(!this.getLeft().isEmpty()){
+				while(!this._right.getLeft().isEmpty()){
 					rightNode = rightNode.getLeft();
 				}
 				this._element = rightNode.getElement();
-				this._right = this._right.remove(rightNode.getElement());
+				this._right = this._right.remove(this._element);
 			}
 		}
 		return this;
@@ -90,8 +90,8 @@ public class NonEmptyBST<T extends Comparable<T>> implements BST<T> {
 	// TODO: printPostOrderTraversal
 	@Override
 	public void printPostOrderTraversal() {
-		this.getLeft().printPreOrderTraversal();
-		this.getRight().printPreOrderTraversal();
+		this.getLeft().printPostOrderTraversal();
+		this.getRight().printPostOrderTraversal();
 		System.out.print(this.getElement()+ " ");
 	}
 
