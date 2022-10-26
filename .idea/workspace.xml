@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="230d2131-b549-4e79-b8ba-1ea6e87ef976" name="Changes" comment="how do I make a zip file">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NonEmptyBST.java" beforeDir="false" afterPath="$PROJECT_DIR$/NonEmptyBST.java" afterDir="false" />
-    </list>
+    <list default="true" id="230d2131-b549-4e79-b8ba-1ea6e87ef976" name="Changes" comment="errors in deletion with 2 children" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +52,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666817508420</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="errors in deletion with 2 children">
+      <created>1666820410668</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666820410668</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -72,6 +76,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="assn 4" />
     <MESSAGE value="how do I make a zip file" />
-    <option name="LAST_COMMIT_MESSAGE" value="how do I make a zip file" />
+    <MESSAGE value="errors in deletion with 2 children" />
+    <option name="LAST_COMMIT_MESSAGE" value="errors in deletion with 2 children" />
   </component>
 </project>
