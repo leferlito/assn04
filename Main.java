@@ -13,8 +13,6 @@ public class Main {
       bst = bst.insert(9);
       bst = bst.insert(4);
 
-
-
   }
 
 }

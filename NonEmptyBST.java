@@ -2,6 +2,7 @@ package assn04;
 
 
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class NonEmptyBST<T extends Comparable<T>> implements BST<T> {
@@ -10,7 +11,6 @@ public class NonEmptyBST<T extends Comparable<T>> implements BST<T> {
 	private BST<T> _right;
 
 	public NonEmptyBST(T element) {
-
 		_left = new EmptyBST<T>();
 		_right = new EmptyBST<T>();
 		_element = element;
@@ -56,24 +56,25 @@ public class NonEmptyBST<T extends Comparable<T>> implements BST<T> {
 		if(element.compareTo(this._element) < 0){
 			this._left = lChild.remove(element);
 		}
-		if(element.compareTo(this._element) == 0) {
-			if (this._left == null && this._right == null) { // leaf condition
-				this.remove(element);
-				return this;
+		if(element.compareTo(this._element) == 0) { // finally found node
+			if (this._left.isEmpty() && this._right.isEmpty()) { // leaf condition
+				return new EmptyBST<>();
 			}
-			if (this._left == null || this._right == null){ // one child condition
-				if (this._left == null) {
-					this._element.equals(this._right);
+			if (this._left.isEmpty() ^ this._right.isEmpty()){ // one child condition
+				if (this._left.isEmpty()) {
+					return this.getRight();
 				}
 				else{
-					this._element.equals(this._left);
+					return this.getLeft();
 				}
 			}
-			if (this._left != null && this._right != null) { // 2 children condition
-				while(this.getLeft() != null){
-					this._left = lChild.remove(element);
+			if (!this._left.isEmpty() && !this._right.isEmpty()) { // 2 children condition. replace with smallest on right
+				BST<T> rightNode = this.getRight();
+				while(!this.getLeft().isEmpty()){
+					rightNode = rightNode.getLeft();
 				}
-				this._element.equals(this._left); // is this doing what I want?
+				this._element = rightNode.getElement();
+				this._right = this._right.remove(rightNode.getElement());
 			}
 		}
 		return this;
@@ -82,22 +83,35 @@ public class NonEmptyBST<T extends Comparable<T>> implements BST<T> {
 	// TODO: printPreOrderTraversal
 	@Override
 	public void printPreOrderTraversal() {
-	
-	
+		System.out.print(this.getElement()+ " ");
+		this.getLeft().printPreOrderTraversal();
+		this.getRight().printPreOrderTraversal();
 	}
 
 	// TODO: printPostOrderTraversal
 	@Override
 	public void printPostOrderTraversal() {
-	
-	
+		this.getLeft().printPreOrderTraversal();
+		this.getRight().printPreOrderTraversal();
+		System.out.print(this.getElement()+ " ");
 	}
 
 	// TODO: printBreadthFirstTraversal
 	@Override
-	public void printBreadthFirstTraversal() {
-	
-	
+	public void printBreadthFirstTraversal() { // queue linked list Queue<T>, enqueue/dequeue
+		Queue<BST<T>> queue = new LinkedList<>();
+		BST<T> current = null;
+		queue.add(this);
+		while (!queue.isEmpty()) {
+			current = queue.poll();
+			if (!current.getLeft().isEmpty()) {
+				queue.add(current.getLeft());
+			}
+			if (!current.getRight().isEmpty()) {
+				queue.add(current.getRight());
+			}
+			System.out.print(current.getElement() + " ");
+		}
 	}
 
 	@Override
