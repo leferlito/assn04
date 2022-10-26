@@ -2,7 +2,6 @@ package assn04;
 
 
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class NonEmptyBST<T extends Comparable<T>> implements BST<T> {
