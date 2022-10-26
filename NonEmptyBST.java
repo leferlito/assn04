@@ -69,7 +69,7 @@ public class NonEmptyBST<T extends Comparable<T>> implements BST<T> {
 			}
 			if (!this._left.isEmpty() && !this._right.isEmpty()) { // 2 children condition. replace with smallest on right
 				BST<T> rightNode = this.getRight();
-				while(!this.getLeft().isEmpty()){
+				while(!rightNode.getLeft().isEmpty()){
 					rightNode = rightNode.getLeft();
 				}
 				this._element = rightNode.getElement();
